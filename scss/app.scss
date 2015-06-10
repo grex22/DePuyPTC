@@ -307,10 +307,14 @@ ul.mobile_nav{
 
 /* Content                */
 
-.jumbotron.jumbotron_home{
-  padding:130px 0;
-  height: 500px;
-  background-image:url('../img/banners/home_landing_img.jpg');
+.jumbotron{
+  padding:45px 0;
+  height: 300px;
+  &.jumbotron_home{
+    height: 500px;
+    background-image:url('../img/banners/home_landing_img.jpg');
+    padding:130px 0;
+  }
   background-size:cover;
   background-position:center;
   
@@ -323,6 +327,16 @@ ul.mobile_nav{
     font-weight: 400;
   }
   
+  @media(max-width:768px){
+    padding-left:20px;
+    padding-right:20px;
+    text-shadow:
+      -1px -1px 0 #fff,  
+      1px -1px 0 #fff,
+      -1px 1px 0 #fff,
+      1px 1px 0 #fff
+    }
+  
   .jumbotron_big_button{
     padding: 20px 20px;
     background-color: white;
@@ -332,7 +346,9 @@ ul.mobile_nav{
     margin-top:40px;
     position:relative;
     
-    @media(max-width:768px){margin-top:10px;}
+    @media(max-width:768px){
+      margin-top:10px;
+    }
     
     &:hover,&:focus{
       text-decoration:none;

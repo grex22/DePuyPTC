@@ -246,19 +246,27 @@ ul.mobile_nav {
         vertical-align: top; }
 
 /* Content                */
-.jumbotron.jumbotron_home {
-  padding: 130px 0;
-  height: 500px;
-  background-image: url("../img/banners/home_landing_img.jpg");
+.jumbotron {
+  padding: 45px 0;
+  height: 300px;
   background-size: cover;
   background-position: center; }
-  .jumbotron.jumbotron_home h1 {
+  .jumbotron.jumbotron_home {
+    height: 500px;
+    background-image: url("../img/banners/home_landing_img.jpg");
+    padding: 130px 0; }
+  .jumbotron h1 {
     font-size: 36px;
     margin-bottom: 25px; }
-  .jumbotron.jumbotron_home p {
+  .jumbotron p {
     font-size: 17px;
     font-weight: 400; }
-  .jumbotron.jumbotron_home .jumbotron_big_button {
+  @media (max-width: 768px) {
+    .jumbotron {
+      padding-left: 20px;
+      padding-right: 20px;
+      text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff, 1px 1px 0 #fff; } }
+  .jumbotron .jumbotron_big_button {
     padding: 20px 20px;
     background-color: white;
     font-size: 30px;
@@ -267,12 +275,12 @@ ul.mobile_nav {
     margin-top: 40px;
     position: relative; }
     @media (max-width: 768px) {
-      .jumbotron.jumbotron_home .jumbotron_big_button {
+      .jumbotron .jumbotron_big_button {
         margin-top: 10px; } }
-    .jumbotron.jumbotron_home .jumbotron_big_button:hover, .jumbotron.jumbotron_home .jumbotron_big_button:focus {
+    .jumbotron .jumbotron_big_button:hover, .jumbotron .jumbotron_big_button:focus {
       text-decoration: none;
       color: #8c1313; }
-    .jumbotron.jumbotron_home .jumbotron_big_button:after {
+    .jumbotron .jumbotron_big_button:after {
       content: "";
       background-image: url("../img/spritesheet.png");
       width: 11px;
