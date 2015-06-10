@@ -23,7 +23,7 @@
       <li class="toplevel"><a href="#" class="headlinefont">Knee Injections</a></li>
       <li class="mobile_breadcrumb"><a href="#" class="headlinefont">Overview</a></li>
       <li class="mobile_breadcrumb"><a href="#" class="headlinefont">Knee Care for Life</a></li>
-      <li><a href="#">Find a Doctor</a></li>
+      <li><a href="#" class="find_a_dr_trigger">Find a Doctor</a></li>
       <li><a href="#">Attend a Knee Seminar Near You</a></li>
       <li><a href="#">Understanding Knee Anatomy</a></li>
       <li><a href="#">For Healthcare Professionals</a></li>
@@ -43,14 +43,15 @@
           <div class="col-sm-6">
             <h2 class="headlinefont no_top_margin">Knee Injections</h2>
           </div>
-          <div class="col-sm-6 text-right screen-xs-text-left">
-            <h2 class="headlinefont no_top_margin"><a href="#" id="find_a_dr_trigger">Find a Doctor <span class="sprite sprite-red_arrow_down_lg"></span></a></h2>
+          <div class="col-sm-6 hidden-xxxxs text-right">
+            <h2 class="headlinefont no_top_margin"><a href="#" class="find_a_dr_trigger">Find a Doctor <span class="sprite sprite-red_arrow_down_lg"></span></a></h2>
           </div>
         </div>
         <div class="row" id="find_a_dr_panel" style="display:none">
           <div id="close_find_a_dr_panel"></div>
           <div class="col-sm-6">
             <h4 class="inline">Find a doctor near you</h4><input class="form-control input-lg" type="text" placeholder="Enter ZIP Code">
+            <div class="clearfix"></div>
           </div>
           <div class="col-sm-4">
             <div class="checkbox custom_check_wrap">
@@ -94,6 +95,8 @@
             <h6>Knee injection patient stories</h6>
 
             <p>One day my knee started to really bother me. It slowly got worse during the day and by the next day it was pretty swollen. I tried all kinds of things to help calm it down.  </p>
+            
+            <h4>Interactive Elements</h4>
             <div class="expander">
               <div class="expander_content">
                 <p>One day my knee started to really bother me. It slowly got worse during the day and by the next day it was pretty swollen. I tried all kinds of things to help calm it down.  </p>
@@ -102,10 +105,60 @@
               </div>
               <a class="expander_title" href="#">Read Transcript</a>
             </div>
-            
+            <div class="accordion accordion-media" id="accordion2">
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
+                    <div class="accordion-media-row row">
+                      <div class="col-xs-4 hidden-xs"><img src="img/video/video-thumb-1.jpg"></div>
+                      <div class="col-xs-8 headlinefont">Omega 3 Fats</div>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseOne" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    ...
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
+                    <div class="accordion-media-row row">
+                      <div class="col-xs-4 hidden-xs"><img src="img/video/video-thumb-2.jpg"></div>
+                      <div class="col-xs-8 headlinefont">Omega 3 Fats</div>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseTwo" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    ...
+                  </div>
+                </div>
+              </div>
+              <div class="accordion-group">
+                <div class="accordion-heading">
+                  <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
+                    <div class="accordion-media-row row">
+                      <div class="col-xs-4 hidden-xs"><img src="img/video/video-thumb-3.jpg"></div>
+                      <div class="col-xs-8 headlinefont">Omega 3 Fats</div>
+                    </div>
+                  </a>
+                </div>
+                <div id="collapseThree" class="accordion-body collapse">
+                  <div class="accordion-inner">
+                    ...
+                  </div>
+                </div>
+              </div>
+            </div>
+            <h4>End-of-Page Call to Action</h4>
+            <a class="btn-clear headlinefont">Want to learn more? Get a free information kit</a>
+            <h4>Mobile-style Buttons, if Needed</h4>
             <a href="#" class="btn btn-block headlinefont">Attend a Knee Seminar Near you</a>
             <a href="#" class="btn btn-block gray headlinefont">Find a Doctor</a>
             <br>
+            <h4>Pre-footer Safety Info</h4>
             <div class="panel panel-default safety_panel">
               <div class="panel-heading">IMPORTANT SAFETY INFORMATION</div>
               <div class="panel-body">
@@ -177,7 +230,7 @@
         $(".header-mobile").toggleClass('mobile_nav_open');
       });
       //Open the Find a Doctor panel in the header
-      $("#find_a_dr_trigger").click(function(e){
+      $(".find_a_dr_trigger").click(function(e){
         e.preventDefault();
         $(this).find('span.sprite').toggleClass('flip');
         $("#find_a_dr_panel").slideToggle(400);
@@ -190,12 +243,18 @@
           $(this).text('Read less ');
         }else{
           $(this).text($(this).attr('data-orig-title'));
-          $(this).attr('data-orig-title') == null;
+          $(this).attr('data-orig-title',null);
         }
         $(this).toggleClass('open');
         $(this).siblings('.expander_content').slideToggle(500);
         $(this).blur();
       });
+      
+      //Special Accordion Event to flip collapse arrow around
+      $(".accordion-heading").click(function(){
+        $(this).toggleClass('open');
+      });
+      
     </script>
   </body>
 </html>

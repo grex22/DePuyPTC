@@ -82,6 +82,8 @@ body{
   }
 }
 
+p{margin-bottom:15px;}
+
 a{
   color:$red;
   &:hover,&:active,&:focus{color:darken($red,10)}
@@ -175,6 +177,11 @@ a{
     & + a{
       margin-left:20px;
     }
+  }
+}
+#find_a_dr_panel{
+  @media (max-width:768px){
+    label{ margin-top:6px; }
   }
 }
 .header-mobile{
@@ -369,6 +376,17 @@ ul.mobile_nav{
     max-width: 160px;
     padding: 7px 10px;
     height: auto;
+    @media(max-width:768px){
+      max-width:100%!important;
+      width:100%;
+    }
+  }
+  @media(min-width:769px) and (max-width:991px){
+    h4{font-weight:400;margin-right:10px;}
+    .input-lg{
+      max-width:140px;
+      font-size:15px;
+    }
   }
 }
 #content{
@@ -428,7 +446,7 @@ ul.mobile_nav{
 }
 
 .expander{
-  margin:10px 0;
+  margin:10px 0 15px;
   .expander_content{
     display:none;
   }
@@ -452,15 +470,51 @@ ul.mobile_nav{
   }
 }
 
+.accordion.accordion-media{
+
+  margin-bottom:15px;
+  
+  .accordion-group{
+    border-top:1px solid #ccc;
+    border-bottom:1px solid #ccc;
+    
+    & + .accordion-group{border-top:none}
+  }
+  .accordion-heading{
+    position:relative;
+    &:after{
+      content:"";
+      display:inline-block;
+      background-image:url('../img/spritesheet.png');
+      width: 20px;
+      height: 13px;
+      background-position: -361px -72px;
+      position: absolute;
+      right: 20px;
+      top: 33px;
+    }
+    
+    &.open:after{
+      transform:rotate(180deg);
+    }
+  }
+  .col-xs-8{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    font-size: 28px;
+    color: gray;
+  }
+}
+
 
 /* Sidebar                */
 
 .btn-clear{
   background: none;
+  display:inline-block;
   border: none;
-  font-size: 25px;
+  font-size: 27px;
   position:relative;
-  
   padding-right:22px;
   &:after{
     content:"";
@@ -470,7 +524,7 @@ ul.mobile_nav{
     background-position: -158px -263px;
     position:absolute;
     right:3px;
-    top:8px;
+    top:9px;
   }
 }
 
@@ -567,6 +621,7 @@ footer{
 }
 .custom_check_wrap{
   label{
+    min-height: 25px;
     font-size:13px;
     padding-left:30px;
     background-image:url('../img/checkbox_empty.png');
