@@ -47,15 +47,15 @@
             <h2 class="headlinefont no_top_margin"><a href="#" id="find_a_dr_trigger">Find a Doctor <span class="sprite sprite-red_arrow_down_lg"></span></a></h2>
           </div>
         </div>
-        <div class="row" id="find_a_dr_panel">
+        <div class="row" id="find_a_dr_panel" style="display:none">
           <div id="close_find_a_dr_panel"></div>
           <div class="col-sm-6">
             <h4 class="inline">Find a doctor near you</h4><input class="form-control input-lg" type="text" placeholder="Enter ZIP Code">
           </div>
           <div class="col-sm-4">
             <div class="checkbox custom_check_wrap">
-              <input type="checkbox" class="custom_check" value="true" id="agree_pp" name="agree_pp">
-              <label for="agree_pp">
+              <input type="checkbox" class="custom_check" value="true" id="agree_pp_head" name="agree_pp_head">
+              <label for="agree_pp_head">
                 The information I submit for the search will be governed by the website's <a href="#">privacy policy</a>
               </label>
             </div>
@@ -65,17 +65,24 @@
           </div>
         </div>
       </div>
-      <div class="jumbotron">
+      <div class="jumbotron jumbotron_home">
         <div class="container">
-          ...
+          <div class="row">
+            <div class="col-sm-6 col-xs-12">
+              <h1>Understanding your knee pain treatment options.</h1>
+              <p>Discover helpful tips on preparing for your treatment and learn what to expect during your procedure and after it.</p>
+            </div>
+            <div class="col-sm-4 col-sm-offset-2 col-xs-12">
+              <a href="#" class="jumbotron_big_button headlinefont">Knee Injections</a>
+            </div>
+          </div>
         </div>
       </div>
       <div class="container">
         <div id="breadcrumbs" class="hidden-xs">
           <a href="#" class="headlinefont">Overview</a>
-          <a href="#" class="headlinefont active">Overview</a>
-          <a href="#" class="headlinefont">Overview</a>
-          <a href="#" class="headlinefont">Knee Care for Life</a>
+          <a href="#" class="headlinefont">Second Level Crumb</a>
+          <a href="#" class="headlinefont active">Active Breadcrumb</a>
         </div>
         <div id="content" class="row">
           <div id="main" class="col-sm-8">
@@ -85,11 +92,20 @@
             <h4>Knee injection patient stories</h4>
             <h5>Knee injection patient stories</h5>
             <h6>Knee injection patient stories</h6>
-            <p>Debbie: I work as a <a href="#">personal assistant/nanny.</a> Basically, I run errands during the day while the kids are at school. I work with four kids. So I'm in and out of the car all day, I'm in and out of stores all day, usually in a hurry, and then after that it's picking up the kids, bringing them home, doing all kinds of activities in the afternoon. Most of it is on my knees.</p>
+
+            <p>One day my knee started to really bother me. It slowly got worse during the day and by the next day it was pretty swollen. I tried all kinds of things to help calm it down.  </p>
+            <div class="expander">
+              <div class="expander_content">
+                <p>One day my knee started to really bother me. It slowly got worse during the day and by the next day it was pretty swollen. I tried all kinds of things to help calm it down.  </p>
+                <p>Dr. Christiano: <a href="#">Debbie came to me about a year</a> or two ago with a complaint of bilateral knee pain, and really it was the left knee that was bothering her, and after working her up appropriately, we came to the diagnosis of moderate knee arthritis. </p>
+                <p>Debbie: I work as a <a href="#">personal assistant/nanny.</a> Basically, I run errands during the day while the kids are at school. I work with four kids. So I'm in and out of the car all day, I'm in and out of stores all day, usually in a hurry, and then after that it's picking up the kids, bringing them home, doing all kinds of activities in the afternoon. Most of it is on my knees.</p>
+              </div>
+              <a class="expander_title" href="#">Read Transcript</a>
+            </div>
+            
             <a href="#" class="btn btn-block headlinefont">Attend a Knee Seminar Near you</a>
             <a href="#" class="btn btn-block gray headlinefont">Find a Doctor</a>
-            <p>One day my knee started to really bother me. It slowly got worse during the day and by the next day it was pretty swollen. I tried all kinds of things to help calm it down.  </p>
-            <p>Dr. Christiano: <a href="#">Debbie came to me about a year</a> or two ago with a complaint of bilateral knee pain, and really it was the left knee that was bothering her, and after working her up appropriately, we came to the diagnosis of moderate knee arthritis. </p>
+            <br>
             <div class="panel panel-default safety_panel">
               <div class="panel-heading">IMPORTANT SAFETY INFORMATION</div>
               <div class="panel-body">
@@ -100,6 +116,12 @@
             </div>
           </div>
           <div id="sidebar" class="col-sm-4">
+            <div class="widget image_callout">
+              <a href="#">
+                <img src="img/sidebar/seminar_button.jpg">
+                <div class="image_callout_text headlinefont">Attend a Knee Seminar Near You</div>
+              </a>
+            </div>
             <div class="widget find_a_doctor">
               <h4>Find a doctor near you</h4>
               <form>
@@ -148,10 +170,31 @@
     <script src="js/bootstrap.min.js"></script>
     <script src="js/retina.js"></script>
     <script>
+      //Open the mobile navigation on click
       $("#mobile_nav_trigger_wrap").click(function(e){
         e.preventDefault();
         $("#sitewrap").toggleClass('mobile_nav_open');
         $(".header-mobile").toggleClass('mobile_nav_open');
+      });
+      //Open the Find a Doctor panel in the header
+      $("#find_a_dr_trigger").click(function(e){
+        e.preventDefault();
+        $(this).find('span.sprite').toggleClass('flip');
+        $("#find_a_dr_panel").slideToggle(400);
+      });
+      //Handle content expand / contract (more / less)
+      $(".expander_title").click(function(e){
+        e.preventDefault();
+        if($(this).attr('data-orig-title') == null){
+          $(this).attr('data-orig-title',$(this).text());
+          $(this).text('Read less ');
+        }else{
+          $(this).text($(this).attr('data-orig-title'));
+          $(this).attr('data-orig-title') == null;
+        }
+        $(this).toggleClass('open');
+        $(this).siblings('.expander_content').slideToggle(500);
+        $(this).blur();
       });
     </script>
   </body>

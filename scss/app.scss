@@ -41,6 +41,10 @@ $mobile_menu_width: 290px;
   z-index:1;
   background:url('data:image/svg+xml;utf8,<svg width="15" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs><linearGradient id="grygrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#dddddd;" /><stop offset="49%" style="stop-color:#dddddd;" /><stop offset="50%" style="stop-color:#d0d0d0;" /><stop offset="100%" style="stop-color:#dcdcdc;" /></linearGradient></defs><g><path id="svg_1" d="M 0 0 L 15 30 L 0 60 z" fill="url(#grygrad)"/></g></svg>');
 }
+@mixin crumb_white_right(){
+  z-index:3;
+  background:url('data:image/svg+xml;utf8,<svg width="15" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><path id="svg_1" d="M 0 0 L 15 30 L 0 60" fill="transparent" stroke="white" stroke-width="2"/></svg>');
+}
 
 /* Fonts                */
 @font-face {
@@ -76,6 +80,11 @@ body{
   @media(max-width:768px){
     padding-top:61px;
   }
+}
+
+a{
+  color:$red;
+  &:hover,&:active,&:focus{color:darken($red,10)}
 }
 
 .btn-block{
@@ -290,6 +299,51 @@ ul.mobile_nav{
 
 
 /* Content                */
+
+.jumbotron.jumbotron_home{
+  padding:130px 0;
+  height: 500px;
+  background-image:url('../img/banners/home_landing_img.jpg');
+  background-size:cover;
+  background-position:center;
+  
+  h1{
+    font-size:36px;
+    margin-bottom:25px
+  }
+  p{
+    font-size: 17px;
+    font-weight: 400;
+  }
+  
+  .jumbotron_big_button{
+    padding: 20px 20px;
+    background-color: white;
+    font-size: 30px;
+    width: 100%;
+    display:inline-block;
+    margin-top:40px;
+    position:relative;
+    
+    @media(max-width:768px){margin-top:10px;}
+    
+    &:hover,&:focus{
+      text-decoration:none;
+      color:darken($red,10);
+    }
+    &:after{
+      content:"";
+      background-image:url('../img/spritesheet.png');
+      width:11px;
+      height:17px;
+      background-position: -158px -263px;
+      position:absolute;
+      right: 14px;
+      top: 39%;
+    }
+  }
+}
+
 #content_header{
   margin-top:8px;
   margin-bottom:8px;
@@ -311,8 +365,10 @@ ul.mobile_nav{
     margin-top:0px;
   }
   .input-lg{
-    display:inline;
-    max-width:190px;
+    display: inline;
+    max-width: 160px;
+    padding: 7px 10px;
+    height: auto;
   }
 }
 #content{
@@ -335,9 +391,18 @@ ul.mobile_nav{
     padding:0 20px;
     font-size:22px;
     min-width: 23.9%;
-    &:hover{
+    &:hover,&:active,&:focus{
       text-decoration:none;
       color:darken($red,10);
+    }
+    &:after{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: -17px;
+      width: 15px;
+      height:60px;
+      @include crumb_white_right();
     }
     &.active{
       @include redgrad();
@@ -362,6 +427,30 @@ ul.mobile_nav{
   }
 }
 
+.expander{
+  margin:10px 0;
+  .expander_content{
+    display:none;
+  }
+  .expander_title{
+    padding:3px 0;
+    font-weight:500;
+    display:block;
+    
+    &:after{
+      content:"";
+      display:inline-block;
+      margin-left:4px;
+      background-image:url('../img/spritesheet.png');
+      width: 8px;
+      height: 6px;
+      background-position: -140px -263px;
+    }
+    &.open:after{
+      background-position: -179px -263px;
+    }
+  }
+}
 
 
 /* Sidebar                */
@@ -388,9 +477,33 @@ ul.mobile_nav{
 #sidebar{
   margin-top:20px;
   .widget{
+    margin-bottom:20px;
+    
     &.find_a_doctor{
       background-color: #dbdbdb;
       padding: 10px 15px;
+    }
+    &.image_callout{
+      a{display:block;position:relative;}
+      .image_callout_text{
+        background-color:fade-out($red, .1);
+        position: absolute;
+        width: 100%;
+        bottom: -1px;
+        color: white;
+        font-size: 25px;
+        padding: 13px 20px 12px 8px;
+        &:after{
+          content: "";
+          background-image: url("../img/spritesheet.png");
+          width: 11px;
+          height: 17px;
+          background-position: -213px -263px;
+          position: absolute;
+          right: 7px;
+          top: 35%;
+        }
+      }
     }
   }
 }
@@ -438,7 +551,7 @@ footer{
 
 
 /* Utility Classes        */
-
+.flip{transform: rotate(180deg);}
 .no_margin{margin:0!important;}
 .no_bottom_margin{margin-bottom:0!important;}
 .no_top_margin{margin-top:0!important;}
@@ -684,16 +797,16 @@ footer{
     background-position: -109px -263px;
 }
 
-.sprite-red_arrow_down_sm_more {
-    width: 8px;
-    height: 6px;
-    background-position: -140px -263px;
-}
-
 .sprite-red_arrow_right_lg {
     width: 11px;
     height: 17px;
     background-position: -158px -263px;
+}
+
+.sprite-red_arrow_down_sm_more {
+    width: 8px;
+    height: 6px;
+    background-position: -140px -263px;
 }
 
 .sprite-red_arrow_up_sm_less {
