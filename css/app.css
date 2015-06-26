@@ -71,6 +71,54 @@ a {
   .panel.safety_panel .panel-body {
     color: #9b9b9b; }
 
+/* Location List        */
+ul.list-locations {
+  list-style-type: none;
+  counter-reset: list;
+  position: relative;
+  padding-left: 50px; }
+  ul.list-locations li {
+    counter-increment: list;
+    min-height: 70px; }
+  ul.list-locations li:before {
+    content: counter(list,upper-alpha);
+    position: absolute;
+    width: 30px;
+    height: 56px;
+    left: 0;
+    text-align: center;
+    padding-top: 5px;
+    padding-left: 2px;
+    font-weight: 500;
+    color: white;
+    background: url("../img/pin.png"); }
+
+/* Video Overlay Bar    */
+.fake_video_embed {
+  height: 300px;
+  background-color: #f3f3f3;
+  background-image: url("../img/sidebar/seminar_button.jpg");
+  background-size: cover;
+  position: relative; }
+
+.video_title_bar {
+  background-color: rgba(185, 25, 25, 0.9);
+  position: absolute;
+  width: 100%;
+  bottom: -1px;
+  color: white;
+  font-size: 25px;
+  padding: 13px 20px 12px 8px; }
+  .video_title_bar:after {
+    content: "";
+    background-image: url("../img/spritesheet.png");
+    width: 17px;
+    height: 11px;
+    background-position: -231px -263px;
+    position: absolute;
+    right: 10px;
+    top: 38%; }
+
 /* Header               */
 .row.header {
   padding-top: 10px;
@@ -799,6 +847,11 @@ footer {
   background-position: -267px -222px; }
 
 .sprite-white_arrow_right_lg {
+  width: 11px;
+  height: 17px;
+  background-position: -213px -263px; }
+
+.sprite-white_arrow_up_lg {
   width: 11px;
   height: 17px;
   background-position: -213px -263px; }
