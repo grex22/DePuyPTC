@@ -455,6 +455,9 @@ ul.mobile_nav {
         left: 0;
         z-index: 1;
         background: url('data:image/svg+xml;utf8,<svg width="15" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs><linearGradient id="grygrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#dddddd;" /><stop offset="49%" style="stop-color:#dddddd;" /><stop offset="50%" style="stop-color:#d0d0d0;" /><stop offset="100%" style="stop-color:#dcdcdc;" /></linearGradient></defs><g><path id="svg_1" d="M 0 0 L 15 30 L 0 60 z" fill="url(#grygrad)"/></g></svg>'); }
+      #breadcrumbs a.active:first-child:before {
+        z-index: 1;
+        background: url('data:image/svg+xml;utf8,<svg width="15" height="60" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg"><defs><linearGradient id="redrgrad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:#be2625;" /><stop offset="49%" style="stop-color:#be2625;" /><stop offset="50%" style="stop-color:#ad1d18;" /><stop offset="100%" style="stop-color:#be2424;" /></linearGradient></defs><g><path id="svg_1" d="M 0 0 L 15 30 L 0 60 z" fill="url(#redrgrad)"/></g></svg>'); }
     #breadcrumbs a polygon {
       background: #be2625;
       /* Old browsers */
